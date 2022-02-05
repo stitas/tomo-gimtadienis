@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="{% static 'js/snapfit.js' %}"></script>
+    <title>Document</title>
+</head>
+<body class="puzzle-body">
+    <canvas id="background-canvas"></canvas>
+    <div class="container">
+        <div class="puzzle-container">
+            <h1>Puzlė</h1>
+            <img src="{% static 'images/puzle.jpg' %}" alt="puzle" onLoad="snapfit.add(this,{callback: function(){document.getElementById('puzzle-solved-button').style.display = '';}});" width="800" height="600" >
+            <form action="{% url 'word_search' %}">
+                <input class="btn btn-primary" id="puzzle-solved-button" style="display:none;" type="submit" value="maladiec iveikei tolyn">
+            </form>
+            <div class="puzzle-rules">
+                <h1>Pagalba:</h1>
+                <p>Dvigubas paspaudimas su kairiu: detalė pasisuka 90 laipsnių</p>
+                <p>Paspaudimas su dešiniu: detalė apsiverčia</p>
+                <p>Detalė pilkšva: detalė yra apversta į blogąją pusę</p>
+                <p>Detalės sienelė raudona: detalės vieta neti<b>N</b>kama</p>
+                <p>Detalės sienelė žalia: detalės veita tinkama</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        snapfit.defaultMixed = true;
+        snapfit.defaultNokeys = true;
+        snapfit.defaultLevel = 1;
+        snapfit.defaultAreaimage = false;
+        snapfit.defaultPolygon = true;
+        snapfit.defaultForcetouchui = true;
+        snapfit.defaultCallback = true;
+    </script>
+    <script  type="text/javascript" src="{% static 'js/background.js' %}"></script>
+</body>
+</html>
+{% endblock %}

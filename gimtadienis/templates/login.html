@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="login-body">
+    <canvas id="background-canvas"></canvas>
+    <div class="container">
+        <form method="POST">
+            <div class="log-in-form-container">
+                <h1>Prisijunk</h1>
+                {% csrf_token %}
+                <div class="form-inputs-container">
+                    {% for field in form %}
+                    <div class="log-in-form-input-flds">
+                        <input class="form-control form-control-log-in" id="{{ field.id_for_label }}" maxlength="50" name="{{ field.html_name }}" type="{{ field.field.widget.input_type}}" placeholder="{{ field.html_name|title }}"/> 
+                    </div>
+                    {% endfor %}
+                </div>
+                <div>
+                    <input id="log-in-button" type="submit" class="btn btn-primary" value="Jungtis">
+                </div>
+                {% if form.errors %}
+                    <p id="log-in-error">Your username or password is incorrect!</p>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <script  type="text/javascript" src="{% static 'js/background.js' %}"></script>
+</body>
+</html>
+{% endblock %}

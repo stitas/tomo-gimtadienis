@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Word Find</title>>
+</head>
+<body class="word-search-body">
+    <canvas id="background-canvas"></canvas>
+    <div class="container">
+        <div class="word-search-title">
+            <h1>Surask zodz<b>i</b>us</h1>
+        </div>
+        <div class="word-search-conatiner">
+            <div class="word-search-image">
+                <img src="{% static 'images/word-search.jpg' %}" alt="lkallala" srcset="">
+            </div>
+            <div id="word-input">
+                <label for="geussfield">Spe<b>k</b></label>
+                <input type="text" id="geussfield" class="geussfield">
+                <button value="Tikrinti" id="submitfield" class="submitfield btn btn-outline-success">Tikrinti</button>
+                <h5 id="word-counter">0/10 </h5>
+            </div>
+            <div class="btn-to-secret-code-container" id="btn-to-code">
+                <form action="{% url 'secret_code' %}">
+                    <input type="submit" value="Sveikinu tu issprendei 2 klases uzduoti, tolyn! A" class="btn btn-primary btn-to-secret-code">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script  type="text/javascript" src="{% static 'js/background.js' %}"></script>
+    <script src="{% static 'js/wordfindgame.js' %}"></script>
+</body>
+</html>
+{% endblock %}

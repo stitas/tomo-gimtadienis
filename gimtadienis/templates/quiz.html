@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="quiz-body">
+    <canvas id="background-canvas"></canvas>
+    <div class="container quiz-container">
+        <div class="quiz-title">
+            <h1>Test<b>a</b>s</h1>
+        </div>
+        <hr>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% for q in questions %}
+            <div class="question">
+                <h1>{{q.id}}. {{q.question}}</h1>
+                <hr>
+                <div class="quiz-choice">
+                    <input class="quiz-choice-input" type="radio" name="question_{{ q.id }}" id="gridRadio1" value="{{q.opt1}}" required>
+                    <label for="gridRadio1">
+                        <h5 id="option-selection">{{q.opt1}}</h5>
+                    </label>
+                </div>
+                <div class="quiz-choice">
+                    <input class="quiz-choice-input" type="radio" name="question_{{ q.id }}" id="gridRadio2" value="{{q.opt2}}">
+                    <label for="gridRadio2">
+                        <h5 id="option-selection">{{q.opt2}}</h5>
+                    </label>
+                </div>
+                <div class="quiz-choice">
+                    <input class="quiz-choice-input" type="radio" name="question_{{ q.id }}" id="gridRadio3" value="{{q.opt3}}">
+                    <label for="gridRadio3">
+                        <h5 id="option-selection">{{q.opt3}}</h5>
+                    </label>
+                </div>
+                <div class="quiz-choice">
+                    <input class="quiz-choice-input" type="radio" name="question_{{ q.id }}" id="gridRadio4" value="{{q.opt4}}">
+                    <label for="gridRadio4">
+                        <h5 id="option-selection">{{q.opt4}}</h5>
+                    </label>
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary end-quiz-btn">Baigti</button>
+            <p style="margin-right:100px; color:black;"><b>P</b></p>
+        </form>
+    </div>
+
+    <script  type="text/javascript" src="{% static 'js/background.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}

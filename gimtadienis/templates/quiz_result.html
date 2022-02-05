@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="quiz-result-body">
+    <canvas id="background-canvas"></canvas>
+    <div class="container">
+        <div class="quiz-result-container">
+            <h1>Rezultas</h1>
+            <div class="quiz-result-result">
+                <h4>Norint praeiti į kitą testo turą tau reikėjo surinkti 90%, tu surinkai:</h4>
+                <h1>{{percent}}%</h1>
+            </div>
+                {% if percent >= 90 %}
+                <img id="laimingas-img" src="{% static 'images/laimingas.jpg' %}" alt="laiminga fotke">
+                <p>maladiec tikras draugelis kietas bicas beleka baxur<b>A</b>s</p>
+                <div class="btn-to-puzzle">
+                    <form action="{% url 'puzzle' %}">
+                        <button class="btn btn-primary" >Maladiec tolyn !</button>
+                    </form>
+                </div>
+                {% else %}
+                <img id="piktas-img" src="{% static 'images/piktas.jpg' %}" alt="pikta fotke">
+                <p>nu supratau taip ir atsirenki draugus</p>
+                <div class="btn-to-puzzle">
+                    <form action="{% url 'quiz' %}">
+                        <button class="btn btn-primary" >Kartok</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+    </div>
+    <script  type="text/javascript" src="{% static 'js/background.js' %}"></script>
+</body>
+</html>
+{% endblock %}
