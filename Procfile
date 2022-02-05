@@ -1,1 +1,1 @@
-web: gunicorn demo.wsgi --log-file -
+web: gunicorn tomo_gimtadienis.wsgi --log-file -
