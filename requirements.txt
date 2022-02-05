@@ -40,7 +40,6 @@ django-star-ratings==0.9.1
 djangorestframework==3.12.4
 entrypoints==0.3
 et-xmlfile==1.1.0
-Faker==8.1.4
 Flask==1.1.2
 Flask-SQLAlchemy==2.5.1
 folium==0.12.1
