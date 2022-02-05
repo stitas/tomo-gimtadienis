@@ -73,7 +73,6 @@ librosa==0.8.1
 llvmlite==0.37.0
 lxml==4.6.2
 MarkupSafe==1.1.1
-matplotlib==3.3.4
 maxminddb==2.0.3
 mechanize==0.4.7
 mistune==0.8.4
