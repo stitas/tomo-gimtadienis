@@ -23,7 +23,7 @@ TEMPLATE_DIR = BASE_DIR / 'gimatdienis/templates'
 SECRET_KEY = 'django-insecure-$3v_2tfo)@ooigun%$nnay8a=@ab+*8ln=ptf^kqslke=+j@&u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['tomogimtadienis.herokuapp.com']
 
